@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Form Validations</title>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+</head>
+<body ng-app="myApp">
+	<input type="text" ng-model="color" />
+	<div style="background-color: {{color}}">Hello</div>
+
+	<form name="myForm">
+		<input type="text" name="fName" ng-model="fName" ng-minlength="5" ng-maxlength="15" required/>
+		<span ng-show="myForm.fName.$error.minlength">Enter min 5 characters</span> 
+		<span ng-show="myForm.fName.$error.maxlength">Enter max 15 characters</span> 
+		 <br />
+		<input type="text" name="lName" ng-model="lName" ng-minlength="5" ng-maxlength="15"  required/> 
+		<span ng-show="myForm.lName.$error.minlength">Enter min 5 characters</span> 
+		<span ng-show="myForm.lName.$error.maxlength">Enter max 15 characters</span> 
+		<br />
+		<input type="email" name="uEmail" ng-model="uEmail" required/> 
+		<span ng-show="myForm.uEmail.$invalid && uEmail.$untouched">Enter valid email</span> 
+		 <br />
+	</form>
+
+
+</body>
+
+<script>
+	var App = angular.module("myApp", []);
+</script>
+
+<style>
+
+input.ng-dirty.ng-invalid {
+  border: 2px solid red;
+}
+
+input.ng-valid {
+	border: 2px solid lightgreen;
+}
+
+input:focus, select:focus, textarea:focus, button:focus {
+	outline: none;
+}
+</style>
+
+</html>

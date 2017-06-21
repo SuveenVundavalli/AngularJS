@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="AngularRouting/Resources/CSS/bootstrap.css">
+<link rel="stylesheet" href="AngularRouting/Resources/CSS/MyStyle.css">
+
+<script src="AngularRouting/Resources/JS/angular.js"></script>
+<script src="AngularRouting/Resources/JS/angular-route.js"></script>
+<script src="AngularRouting/Resources/JS/jquery-3.2.0.js"></script>
+<script src="AngularRouting/Resources/JS/bootstrap.js"></script>
+
+
+<script src="app.js"></script>
+<script src="Home/HomeController.js"></script>
+<script src="Blog/BlogController.js"></script>
+<script src="Form/FormController.js"></script>
+<script src="Jobs/JobsController.js"></script>
+<script src="User/UserController.js"></script>
+<script src="Products/ProductController.js"></script>
+
+
+</head>
+<body ng-app="myApp">
+	<div>
+		<h1 class="text-center">Routing Demo</h1>
+		<hr />
+
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">WebSiteName</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#/">Home</a></li>
+					<li><a href="#/Blog">Blog</a></li>
+					<li><a href="#/Form">Form</a></li>
+					<li><a href="#/Jobs">Jobs</a></li>
+					<li><a href="#/Products">Products</a></li>
+				</ul>
+				<div ng-controller="UserController">
+					<ul class="nav navbar-nav navbar-right">
+						<li ng-show="logged"><a href="#/Login" ng-click="isUserLoggedin()"><span class="glyphicon glyphicon-user"></span>Login</a></li>
+						<li ng-hide="logged"><a href="#/Logout" ng-click="isUserLoggedin()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<hr />
+		<div class="container">
+			<div ng-view></div>
+		</div>
+	</div>
+</body>
+
+</html>

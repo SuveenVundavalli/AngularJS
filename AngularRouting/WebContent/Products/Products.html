@@ -1,0 +1,58 @@
+<div ng-controller="ProductController">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Stock</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="product in products">
+				<td>{{product.id}}</td>
+				<td>{{product.name}}</td>
+				<td>{{product.price | currency:"&#8377;":0}}</td>
+				<td>{{product.stock}}</td>
+				<td><a class="btn btn-danger" ng-click="deleteProduct(product.id)">Delete</a> <a class="btn btn-info" ng-click="editProduct(product.id)">Edit</a>
+				</td>
+
+			</tr>
+		</tbody>
+	</table>
+
+	<form name="myForm">
+		<div class="form-group">
+			<div ng-hide="isUserClickedEdit">
+				<label for="id">Product Id:</label> <input type="number" class="form-control" name="pId" id="id" ng-model="id" ng-maxlength="15" required>
+				<span ng-show="myForm.pId.$error.required && myForm.pId.$dirty" style="color:red;">Enter Id</span>
+				<span ng-show="myForm.pId.$error.maxlength" style="color:red;">Maximum 15 characters</span>
+			</div>
+			<div ng-show="isUserClickedEdit">
+				<label for="id">Product Id:</label> <input type="number" class="form-control" id="id" ng-model="id" readonly>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="name">Product Name:</label> <input type="text" class="form-control" name="pName" id="name" ng-model="name" ng-minlength="5" ng-maxlength="15" required>
+			<span ng-show="myForm.pName.$error.minlength" style="color:red;">Minimum 5 characters</span>
+			<span ng-show="myForm.pName.$error.maxlength" style="color:red;">Maximum 15 characters</span>
+			<span ng-show="myForm.pName.$error.required && myForm.pName.$dirty" style="color:red;">Required Field</span>
+		</div>
+		<div class="form-group">
+			<label for="price">Product Price:</label> <input type="number" class="form-control" name="pPrice" id="price" ng-model="price" ng-min="1" ng-maxlength="6" required>
+			<span ng-show="myForm.pPrice.$error.min" style="color:red;">Minimum &#8377; 1</span>			
+			<span ng-show="myForm.pPrice.$error.maxlength" style="color:red;">Price cannot be more than 9,99,999</span>
+			<span ng-show="myForm.pPrice.$error.required && myForm.pPrice.$dirty" style="color:red;">Required Field</span>
+		</div>
+		<div class="form-group">
+			<label for="stock">Product Stock:</label> <input type="number" class="form-control" name="pStock" id="stock" ng-model="stock" ng-min="1" required>
+			<span ng-show="myForm.pStock.$error.min" style="color:red;">Minimum 1 piece in stock</span>
+			<span ng-show="myForm.pStock.$error.required && myForm.pStock.$dirty" style="color:red;">Required Field</span>
+		</div>
+		
+		<div ng-hide="isUserClickedEdit"><button type="submit" class="btn btn-success" ng-disabled="myForm.$invalid" ng-click="addProduct()">Add</button></div>
+		<div ng-show="isUserClickedEdit"><button type="submit" class="btn btn-primary" ng-disabled="myForm.$invalid" ng-click="updateProduct(id)">Update</button></div>
+	</form>
+
+</div>
