@@ -1,35 +1,31 @@
-var app = angular.module("myApp",["ngRoute"]);
+var app = angular.module("myApp", [ "ngRoute" ]);
 
+// ngRoute
 app.config(function($routeProvider) {
-	
-	$routeProvider.when("/",{
+
+	$routeProvider.when("/", {
 		templateUrl : "Home/Home.html",
 		controller : "HomeController"
-	})
-	.when("/Blog",{
+	}).when("/Blog", {
 		templateUrl : "Blog/Blog.html",
 		controller : "BlogController"
-	})
-	.when("/Form",{
+	}).when("/Form", {
 		templateUrl : "Form/Form.html",
 		controller : "FormController"
-	})
-	.when("/Jobs",{
+	}).when("/Jobs", {
 		templateUrl : "Jobs/Jobs.html",
 		controller : "JobsController"
-	})
-	.when("/Products",{
+	}).when("/Products", {
 		templateUrl : "Products/Products.html",
 		controller : "ProductController"
-	})
-	.when("/Login",{
+	}).when("/Login", {
 		templateUrl : "User/Login.html",
 		controller : "UserController"
-	})
-	.when("/Logout",{
+	}).when("/Logout", {
 		templateUrl : "User/Logout.html",
 		controller : "UserController"
-	})
-	.otherwise({redirectTo:'/'});
-	
+	}).otherwise({
+		redirectTo : '/'
+	});
+
 });
