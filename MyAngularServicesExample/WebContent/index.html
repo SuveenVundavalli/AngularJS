@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+<link rel="stylesheet" href="Resources/CSS/bootstrap.css">
+
+<script src="Resources/JS/angular.js"></script>
+<script src="Resources/JS/angular-route.js"></script>
+<script src="Resources/JS/jquery-3.2.0.js"></script>
+<script src="Resources/JS/bootstrap.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController as myctrl">
+	<div class="container">
+	
+		<table class="table">
+			<tr>
+				<th>Blog Name</th>
+				<th>Blog descriptionn</th>
+			</tr>
+			<tr ng-repeat="blog in blogs">
+				<td>{{blog.blogname}}</td>
+				<td>{{blog.blogdescription}}</td>
+			</tr>
+		</table>
+		<table class="table">
+			<tr>
+				<th>Blog Name</th>
+				<th>Blog descriptionn</th>
+			</tr>
+			<tr ng-repeat="blog in blogs1">
+				<td>{{blog.blogname}}</td>
+				<td>{{blog.blogdescription}}</td>
+			</tr>
+		</table>
+	</div>
+
+
+
+
+<script src="myApp.js"></script>
+<script src="c_blog/myController.js"></script>
+<script src="c_blog/myService.js"></script>
+</body>
+</html>

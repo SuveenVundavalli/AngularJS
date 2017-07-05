@@ -1,0 +1,27 @@
+<h1 class="text-center">Routing Demo</h1>
+<hr />
+
+<nav class="navbar navbar-inverse" ng-controller="NavController">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">WebSiteName</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li ng-class="{active: isActive('/')}"><a href="#/">Home</a></li>
+			<li ng-class="{active: isActive('/Blog')}"><a href="#/Blog">Blog</a></li>
+			<li ng-class="{active: isActive('/Form')}"><a href="#/Form">Form</a></li>
+			<li ng-class="{active: isActive('/Jobs')}"><a href="#/Jobs">Jobs</a></li>
+			<li ng-class="{active: isActive('/Products')}"><a href="#/Products">Products</a></li>
+		</ul>
+		<div ng-controller="UserController">
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-show="logged" ng-class="{active: isActive('/Login')}"><a href="#/Login" ng-click="isUserLoggedin()"><span
+						class="glyphicon glyphicon-user"></span>Login</a></li>
+				<li ng-hide="logged" ng-class="{active: isActive('/Logout')}"><a href="#/Logout" ng-click="isUserLoggedin()"><span
+						class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<hr />

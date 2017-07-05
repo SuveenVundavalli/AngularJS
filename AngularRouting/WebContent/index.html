@@ -20,36 +20,15 @@
 <script src="Jobs/JobsController.js"></script>
 <script src="User/UserController.js"></script>
 <script src="Products/ProductController.js"></script>
+<script src="NavBar/NavController.js"></script>
+
 
 
 </head>
 <body ng-app="myApp">
 	<div>
-		<h1 class="text-center">Routing Demo</h1>
-		<hr />
-
-		<nav class="navbar navbar-inverse">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#">WebSiteName</a>
-				</div>
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#/">Home</a></li>
-					<li><a href="#/Blog">Blog</a></li>
-					<li><a href="#/Form">Form</a></li>
-					<li><a href="#/Jobs">Jobs</a></li>
-					<li><a href="#/Products">Products</a></li>
-				</ul>
-				<div ng-controller="UserController">
-					<ul class="nav navbar-nav navbar-right">
-						<li ng-show="logged"><a href="#/Login" ng-click="isUserLoggedin()"><span class="glyphicon glyphicon-user"></span>Login</a></li>
-						<li ng-hide="logged"><a href="#/Logout" ng-click="isUserLoggedin()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-
-		<hr />
+	<!-- Navbar -->
+		<div ng-include="'NavBar/NavBar.html'"></div>
 		<div class="container">
 			<div ng-view></div>
 		</div>

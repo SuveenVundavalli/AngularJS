@@ -4,7 +4,7 @@
 		<div class="col-sm-3 nopadding">
 			<form>
 				<div class="form-group">
-					<select ng-model='searchOption' class="form-control">
+					<select ng-model='searchOption' class="form-control btn btn-success">
 						<option value='' selected>All</option>
 						<option value='id'>Id</option>
 						<option value='name'>Name</option>
@@ -22,21 +22,21 @@
 			</form>
 		</div>
 		<div class="col-sm-3 nopadding">
-			<button class="btn btn-info btn-block" type="button" ng-click="search(searchText1)">Search</button>
+			<button class="btn btn-success btn-block" type="button" ng-click="search(searchText1)">Search</button>
 		</div>
 	</div>
 
 
 
 
-	<table class="table">
+	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
-				<th>Id</th>
-				<th>Name</th>
-				<th>Price</th>
-				<th>Stock</th>
-				<th>Action</th>
+				<th class="text-center">Id</th>
+				<th class="text-center">Name</th>
+				<th class="text-center">Price</th>
+				<th class="text-center">Stock</th>
+				<th class="text-center">Action</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -45,7 +45,9 @@
 				<td>{{product.name}}</td>
 				<td>{{product.price | currency:"&#8377;":0}}</td>
 				<td>{{product.stock}}</td>
-				<td><a class="btn btn-danger" ng-click="deleteProduct(product.id)">Delete</a> <a class="btn btn-info" ng-click="editProduct(product.id)">Edit</a>
+				<td>
+					<div class="col-xs-6"><a class="btn btn-danger btn-block" ng-click="deleteProduct(product.id)">Delete</a> </div>
+					<div class="col-xs-6"><a class="btn btn-info btn-block" ng-click="editProduct(product.id)">Edit</a></div>
 				</td>
 
 			</tr>
